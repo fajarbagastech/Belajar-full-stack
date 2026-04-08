@@ -1,0 +1,124 @@
+### =========================================================================
+### KONFIGURASI VARIABEL
+### =========================================================================
+@baseUrl = http://localhost:8000/api
+@token = Fn44aTZsuZRxlKju1u1pPVVgv1z9ksCVRey61BYMa66fc16a
+
+### =========================================================================
+### 1. AUTENTIKASI (PINTU MASUK)
+### =========================================================================
+
+### Register User Baru
+POST {{baseUrl}}/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Fajar Bagas",
+    "email": "fajar2@test.com",
+    "password": "password123",
+    "password_confirmation": "password123"
+}
+
+### Login (Ambil Token di sini)
+POST {{baseUrl}}/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "email": "bagas@test.com",
+    "password": "password123"
+}
+
+### Logout (Hapus Token)
+POST {{baseUrl}}/logout
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### =========================================================================
+### 2. MANAJEMEN KATEGORI
+### =========================================================================
+
+### Ambil Semua Kategori Milik User
+GET {{baseUrl}}/categories
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### Tambah Kategori Baru
+POST {{baseUrl}}/categories
+Authorization: Bearer {{token}}
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Jalan"
+}
+
+### Update Nama Kategori (Ganti {id} dengan ID asli)
+PATCH {{baseUrl}}/categories/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "Kuliner & Jajan"
+}
+
+### Hapus Kategori
+DELETE {{baseUrl}}/categories/1
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### =========================================================================
+### 3. MANAJEMEN TRANSAKSI
+### =========================================================================
+
+### Ambil Semua Riwayat Transaksi
+GET {{baseUrl}}/transactions
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### Tambah Transaksi Baru (Ganti category_id sesuai ID yang ada)
+POST {{baseUrl}}/transactions
+Authorization: Bearer {{token}}
+Content-Type: application/json
+Accept: application/json
+
+{
+    "amount": 5000,
+    "category_id": 3,
+    "description": "Beli minum",
+    "type": "expense"
+}
+
+### Detail Satu Transaksi
+GET {{baseUrl}}/transactions/3
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### Update Transaksi
+PATCH  {{baseUrl}}/transactions/3
+Authorization: Bearer {{token}}
+Content-Type: application/json
+Accept: application/json
+
+{
+    "amount": 55000,
+    "category_id": 2,
+    "description": "Nasi Padang + Es Jeruk",
+    "type": "expense"
+}
+
+### Hapus Transaksi
+DELETE {{baseUrl}}/transactions/1
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### =========================================================================
+### 4. FITUR RINGKASAN (SUMMARY)
+### =========================================================================
+
+### Lihat Total Saldo, Income, dan Expense
+GET {{baseUrl}}/summary
+Authorization: Bearer {{token}}
+Accept: application/json
