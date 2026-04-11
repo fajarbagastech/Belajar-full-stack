@@ -2,10 +2,9 @@ import axios from "axios";
 
 const api = axios.create({
 	// Sesuaikan dengan URL API Laravel kamu
-	baseURL: "http://localhost:8000/api",
-	timeout: 10000, // Maksimal nunggu respons 10 detik
+	baseURL: import.meta.env.VITE_API_URL,
 });
-
+console.log("Axios Base URL terpasang ke:", api.defaults.baseURL);
 /**
  * 1. REQUEST INTERCEPTOR
  * Fungsinya: Sebelum request terkirim ke server,
