@@ -38,7 +38,7 @@ class AuthController extends Controller
     {
         $validated = $request->validate([
             'name'     => 'required|string|max:255',
-            'email'    => 'required|string|email|unique:users,email',
+            'email' => 'required|email|unique:mysql.users,email',
             'password' => 'required|string|min:8|confirmed', // Perlu field password_confirmation di request
         ]);
 
