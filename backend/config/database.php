@@ -45,7 +45,7 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'courageous-nourishment.railway.internal'),
+            'host' => env('DB_HOST', 'mysql://root:yPMQrBBqlFdtINkupQSfuImUgISzMcNG@interchange.proxy.rlwy.net:10400/railway'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'railway'),
             'username' => env('DB_USERNAME', 'root'),
