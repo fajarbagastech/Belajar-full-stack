@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'database' => env('DB_DATABASE', 'mysql'),
+    'database' => 'mysql',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'courageous-nourishment-production-21ca.up.railway.app'),
+            'host' => env('DB_HOST', 'courageous-nourishment.railway.internal'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'railway'),
             'username' => env('DB_USERNAME', 'root'),
