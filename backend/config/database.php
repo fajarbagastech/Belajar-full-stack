@@ -46,8 +46,8 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => 'mysql://root:yPMQrBBqlFdtINkupQSfuImUgISzMcNG@interchange.proxy.rlwy.net:10400/railway',
-            'port' => env('DB_PORT', '3306'),
+            'host' => 'interchange.proxy.rlwy.net',
+            'port' => env('DB_PORT', '10400'),
             'database' => env('DB_DATABASE', 'railway'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', ''),
