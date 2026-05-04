@@ -46,7 +46,7 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             // 'url' => env('DATABASE_URL'),
-            'host' => 'interchange.proxy.rlwy.net',
+            'host' => env('DB_HOST', 'interchange.proxy.rlwy.net'),
             'port' => env('DB_PORT', '10400'),
             'database' => env('DB_DATABASE', 'railway'),
             'username' => env('DB_USERNAME', 'root'),
