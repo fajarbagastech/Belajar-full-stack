@@ -33,6 +33,8 @@ class User extends Authenticatable
         ];
     }
 
+    protected $connection = 'mysql';
+
     public function transactions()
     {
         return $this->hasMany(Transaction::class);
